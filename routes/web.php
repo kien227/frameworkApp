@@ -27,6 +27,7 @@ Route::get('student_edit/{id}', [UserController::class, 'edit2'])->name('users.e
 Route::put('update1/{id}', [UserController::class, 'update1'])->name('users.update1');
 Route::put('update2/{id}', [UserController::class, 'update2'])->name('users.update2');
 Route::resource('users', UserController::class);
+
 //Authenticate Route
 Route::get('dashboard1', [CustomAuthController::class, 'dashboard1']);
 Route::get('dashboard2', [CustomAuthController::class, 'dashboard2']);
@@ -38,3 +39,6 @@ Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout')
 Route::resource('files', FileUpload::class);
 Route::get('/upload-file', [FileUpload::class, 'createForm']);
 Route::post('/upload-file', [FileUpload::class, 'fileUpload'])->name('fileUpload');
+
+//File Download Route
+Route::get('/download/{file}', [FileUpload::class, 'download'])->name('files.download');

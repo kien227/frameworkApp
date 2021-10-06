@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Student Site</title>
+    <title>Assignment Site</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -57,12 +57,8 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="mb-3 clearfix col-12" style="margin: 0 -15px;">
-                                <h2 class="pull-left">Users Info</h2>
-                                <div style="display: flex;justify-content: space-between;">
-
-                                <div>
-                                        <a class="btn btn-success" href="message.php?action=send">MESSAGE SEND</a>
-                                        <a class="btn btn-success" href="message.php?action=receive">MESSAGE RECEIVE</a>
+                                <h2 class="pull-left">Assignment Info</h2>
+                                
                                     </div>
                                 </div>
                             </div>
@@ -72,26 +68,21 @@
                                 <p>{{ $message }}</p>
                             </div>
                             @endif
-
-
                             <table class="table table-bordered">
 
                                 <tr>
                                     <th>No</th>
-                                    <th>Username</th>
-                                    <th>Fullname</th>
-                                    <th>Role</th>
+                                    <th>Filename</th>
                                     <th width="280px">Action</th>
                                 </tr>
-                                @foreach ($users as $user)
+                                @foreach ($files as $file)
                                 <tr>
                                     <td>{{ ++$i }}</td>
-                                    <td>{{ $user->username }}</td>
-                                    <td>{{ $user->fullname }}</td>
-                                    <td>{{ $user->role }}</td>
+                                    <td>{{ $file->name }}</td>
                                     <td>
-                                            <a class="btn btn-info" href="{{ route('users.show',$user->id) }}">Details</a>
-                                            <a class="btn btn-primary" href="{{ route('users.edit2',$user->id) }}">Edit</a>
+                                            <a class="btn btn-primary" href="{{ route('files.download', $file->name) }}">Download</a>
+                                            @csrf
+                                        </form>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -102,3 +93,5 @@
             </main>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+</html>
