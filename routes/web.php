@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\FileUpload;
+use App\Http\Controllers\MessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,3 +43,7 @@ Route::post('/upload-file', [FileUpload::class, 'fileUpload'])->name('fileUpload
 
 //File Download Route
 Route::get('/download/{file}', [FileUpload::class, 'download'])->name('files.download');
+
+//Message Route
+Route::resource('messages', MessageController::class);
+Route::get('/MessageInfo', [MessageController::class, 'showMessInfo'])->name('messages.showMessInfo');

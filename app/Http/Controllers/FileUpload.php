@@ -24,8 +24,6 @@ class FileUpload extends Controller
     }
 
     function download($file_name){
-        // $file = Storage::disk('storage/uploads')->get($file_name);
-        // $file_name = req()->file('name');
         return response()->download('storage/uploads/'.$file_name);
     }
 

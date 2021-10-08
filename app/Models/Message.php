@@ -1,14 +1,13 @@
 <?php
 
 namespace App\Models;
-
 use Illuminate\Database\Eloquent\Model;
 
-class File extends Model
+class Message extends Model
 {
-    use HasFactory;
     protected $fillable = [
-        'name',
-        'file_path'
+        'sender',
+        'receiver',
+        'content',
     ];
 }

@@ -63,8 +63,8 @@
                                         <a class="btn btn-success" href="{{ route('users.create') }}">ADD</a>
                                     </div>
                                     <div>
-                                        <a class="btn btn-success" href="message.php?action=send">MESSAGE SEND</a>
-                                        <a class="btn btn-success" href="message.php?action=receive">MESSAGE RECEIVE</a>
+                                        <a class="btn btn-success" href="{{route('messages.index')}}">MESSAGE SEND</a>
+                                        <a class="btn btn-success" href="{{route('messages.showMessInfo')}}">MESSAGE RECEIVE</a>
                                     </div>
                                 </div>
                             </div>
