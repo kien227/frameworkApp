@@ -61,8 +61,8 @@
                                 <div style="display: flex;justify-content: space-between;">
 
                                 <div>
-                                        <a class="btn btn-success" href="message.php?action=send">MESSAGE SEND</a>
-                                        <a class="btn btn-success" href="message.php?action=receive">MESSAGE RECEIVE</a>
+                                        <a class="btn btn-success" href="{{route('messages.index')}}">MESSAGE SEND</a>
+                                        <a class="btn btn-success" href="{{route('messages.showMessInfo')}}">MESSAGE RECEIVE</a>
                                     </div>
                                 </div>
                             </div>
