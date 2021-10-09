@@ -17,7 +17,6 @@ class MessageController extends Controller
 
     public function showMessInfo(){
         $messages = Message::oldest()->paginate(7);
-
         return view('receivemessage', compact('messages'))
 
             ->with('i', (request()->input('page', 1) - 1) * 5);

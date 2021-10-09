@@ -36,7 +36,7 @@
                         </div>
 
                         <button type="submit" class="btn btn-primary">Submit</button>
-                        <a href="" class="btn btn-secondary ml-2">Back</a>
+                        <a href="{{auth()->user()->role == 'teacher' ? route('users.index1') : route('users.index2')}}" class="btn btn-success">Back</a>
                     </form>
                 </div>
             </div>

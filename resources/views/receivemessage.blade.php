@@ -25,12 +25,15 @@
         <th width="180px">Time</th>
     </tr>
     @foreach ($messages as $message)
+    @if (Auth::user()->username == $message->receiver)
     <tr>
         <td>{{ $message->sender }}</td>
         <td>{{ $message->content }}</td>
         <td>{{ $message->created_at }}</td>
     </tr>
+    @endif
     @endforeach
 
 </table>
+<a href="{{auth()->user()->role == 'teacher' ? route('users.index1') : route('users.index2')}}" class="btn btn-success">Back</a>
 </div>
